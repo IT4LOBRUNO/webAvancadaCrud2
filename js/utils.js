@@ -1,11 +1,11 @@
 export function showMessage(elementId, text, type = 'info') {
     const messageDiv = document.getElementById(elementId);
     if (!messageDiv) return;
-    
+
     messageDiv.textContent = text;
     messageDiv.className = `message ${type}`;
     messageDiv.style.display = 'block';
-    
+
     messageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
@@ -18,7 +18,7 @@ export function hideMessage(elementId) {
 
 export function setButtonLoading(button, isLoading, loadingText = 'Carregando...') {
     if (!button) return;
-    
+
     if (isLoading) {
         button.dataset.originalText = button.textContent;
         button.textContent = loadingText;
@@ -45,7 +45,7 @@ export function getPasswordStrength(password) {
 
 export function applyPhoneMask(phone) {
     let value = phone.replace(/\D/g, '');
-    
+
     if (value.length <= 11) {
         if (value.length <= 2) {
             value = value.replace(/^(\d{0,2})/, '($1');
@@ -57,13 +57,13 @@ export function applyPhoneMask(phone) {
             value = value.replace(/^(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3');
         }
     }
-    
+
     return value;
 }
 
 export function translateFirebaseError(error) {
     const errorMessage = error.toString().toLowerCase();
-    
+
     if (errorMessage.includes('email-already-in-use')) {
         return 'Este email já está em uso.';
     } else if (errorMessage.includes('invalid-email')) {
@@ -78,8 +78,10 @@ export function translateFirebaseError(error) {
         return 'Muitas tentativas. Tente novamente mais tarde.';
     } else if (errorMessage.includes('network-request-failed')) {
         return 'Erro de conexão. Verifique sua internet!';
+    } else if (errorMessage.includes('invalid-login-credentials')) {
+        return 'Nenhuma conta encontrada';
     }
-    
+
     return error.toString();
 }
 
@@ -92,7 +94,7 @@ export function redirectAfterDelay(url, delay = 2000) {
 export function checkAuthAndRedirect(auth, redirectIfAuthenticated = true) {
     return new Promise((resolve) => {
         const { onAuthStateChanged } = requireAuth();
-        
+
         onAuthStateChanged(auth, (user) => {
             if (user && redirectIfAuthenticated) {
                 window.location.href = 'home/home.html';
@@ -116,9 +118,9 @@ function requireAuth() {
 }
 
 export function formatDate(dateString) {
-    const options = { 
-        year: 'numeric', 
-        month: '2-digit', 
+    const options = {
+        year: 'numeric',
+        month: '2-digit',
         day: '2-digit',
         hour: '2-digit',
         minute: '2-digit'
