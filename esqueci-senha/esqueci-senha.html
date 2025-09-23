@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Senha - Sistema</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="esqueci-senha.css">
+</head>
+<body>
+    <div class="esqueci-senha-container">
+        <div class="esqueci-senha-box">
+            <h1>Recuperar Senha</h1>
+            <p>Digite seu email para receber um link de recuperação de senha.</p>
+            
+            <form id="esqueciSenhaForm">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <button type="submit" class="btn-primary">Enviar Link de Recuperação</button>
+            </form>
+            
+            <div class="esqueci-senha-links">
+                <a href="../index.html">Voltar para o login</a>
+            </div>
+            
+            <div id="message" class="message"></div>
+        </div>
+    </div>
+
+    <script type="module" src="../js/firebase-config.js"></script>
+    <script type="module" src="../js/auth.js"></script>
+    <script type="module" src="../js/utils.js"></script>
+    <script type="module" src="esqueci-senha.js"></script>
+</body>
+</html>
