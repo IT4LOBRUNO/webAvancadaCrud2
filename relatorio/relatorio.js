@@ -1,20 +1,20 @@
 import { auth, db } from '../js/firebase-config.js';
 import { collection, getDocs, orderBy, query } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
-import { checkAuthAndRedirect, formatDate } from '../js/utils.js';
+import { formatDate } from '../js/utils.js';
 
 let usuariosData = [];
 
 document.addEventListener('DOMContentLoaded', () => {
-    checkAuthAndRedirect(auth, false);
-
-    elements.refreshBtn().addEventListener('click', loadUsers);
-    elements.exportCsvBtn().addEventListener('click', exportToCSV);
-
-    loadUsers();
-
     onAuthStateChanged(auth, user => {
-        if (!user) window.location.href = '../index.html';
+        if (!user) {
+            window.location.href = '../index.html';
+            return;
+        }
+        elements.refreshBtn().addEventListener('click', loadUsers);
+        elements.exportCsvBtn().addEventListener('click', exportToCSV);
+
+        loadUsers();
     });
 });
 
@@ -24,8 +24,6 @@ async function loadUsers() {
         hideError();
         hideRelatorio();
         hideNoUsers();
-
-        if (!auth.currentUser) throw new Error('Usuário não autenticado');
 
         const usuariosRef = collection(db, "usuarios");
         const q = query(usuariosRef, orderBy("dataCriacao", "desc"));
