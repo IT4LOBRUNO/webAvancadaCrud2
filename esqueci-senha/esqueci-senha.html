@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,25 +8,31 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="esqueci-senha.css">
 </head>
+
 <body>
     <div class="esqueci-senha-container">
         <div class="esqueci-senha-box">
             <h1>Recuperar Senha</h1>
             <p>Digite seu email para receber um link de recuperação de senha.</p>
-            
-            <form id="esqueciSenhaForm">
+
+            <form id="esqueciSenhaForm" onsubmit="event.preventDefault(); recuperarSenha();">
                 <div class="form-group">
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" required>
+
+                    <div id="email-required-error" class="error-message">O email é obrigatório</div>
+                    <div id="email-invalid-error" class="error-message">O email não é válido</div>
                 </div>
-                
-                <button type="submit" class="btn-primary">Enviar Link de Recuperação</button>
+
+                <button id="recover-button" type="submit" class="btn-primary">
+                    Enviar Link de Recuperação
+                </button>
             </form>
-            
+
             <div class="esqueci-senha-links">
                 <a href="../index.html">Voltar para o login</a>
             </div>
-            
+
             <div id="message" class="message"></div>
         </div>
     </div>
@@ -35,4 +42,5 @@
     <script type="module" src="../js/utils.js"></script>
     <script type="module" src="esqueci-senha.js"></script>
 </body>
+
 </html>
