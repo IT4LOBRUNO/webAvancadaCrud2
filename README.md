@@ -42,6 +42,5 @@ O arquivo CSV contém:
 ## Tecnologias Utilizadas
 
 - **Frontend**: HTML5, CSS3, JavaScript (ES6+)  
-- **Backend**: Firebase Authentication, Firestore  
-- **UI/UX**: CSS Grid, Flexbox, Gradients  
-- **Exportação**: Blob API, File Download  
+- **Backend**: Firebase Authentication, Firestore   
+- **Exportação**: File Download  
