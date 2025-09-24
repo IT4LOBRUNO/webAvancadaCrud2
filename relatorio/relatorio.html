@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório de Usuários - Sistema</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="relatorio.css">
+</head>
+<body>
+    <div class="relatorio-container">
+        <header class="relatorio-header">
+            <h1>Relatório de Usuários</h1>
+            <div class="header-actions">
+                <button id="refreshBtn" class="btn-secondary">Atualizar</button>
+                <button id="exportCsvBtn" class="btn-secondary">CSV</button>
+                <a href="../home/home.html" class="btn-secondary">Home</a>
+            </div>
+        </header>
+        
+        <main class="relatorio-main">
+            <div class="loading" id="loading">
+                <p>Carregando usuários...</p>
+            </div>
+            
+            <div class="error-message" id="errorMessage" style="display: none;">
+                <p id="errorText"></p>
+            </div>
+            
+            <div class="relatorio-content" id="relatorioContent" style="display: none;">
+                <div class="relatorio-info">
+                    <p>Total de usuários: <span id="totalUsers">0</span></p>
+                    <p class="export-info">Clique em "Exportar CSV" para baixar os dados</p>
+                </div>
+                
+                <div class="usuarios-table-container">
+                    <table class="usuarios-table" id="usuariosTable">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Email</th>
+                                <th>Telefone</th>
+                                <th>Data de Criação</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usuariosTbody">
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="no-users" id="noUsers" style="display: none;">
+                    <p>Nenhum usuário cadastrado no sistema.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="../js/firebase-config.js"></script>
+    <script type="module" src="../js/auth.js"></script>
+    <script type="module" src="../js/utils.js"></script>
+    <script type="module" src="relatorio.js"></script>
+</body>
+</html>

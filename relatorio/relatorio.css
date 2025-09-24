@@ -1,0 +1,181 @@
+.relatorio-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+}
+
+.relatorio-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.relatorio-header h1 {
+    color: #333;
+    margin: 0;
+    font-size: 2rem;
+}
+
+.header-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.relatorio-main {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-height: 400px;
+}
+
+.loading {
+    text-align: center;
+    padding: 40px;
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.error-message {
+    background: #fee;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    color: #721c24;
+}
+
+.relatorio-info {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.relatorio-info p {
+    margin: 0;
+    font-weight: bold;
+    color: #333;
+}
+
+.export-info {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: normal !important;
+    margin-top: 5px !important;
+}
+
+.usuarios-table-container {
+    overflow-x: auto;
+    border-radius: 5px;
+    border: 1px solid #dee2e6;
+}
+
+.usuarios-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+.usuarios-table th {
+    background: #007bff;
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid #0056b3;
+}
+
+.usuarios-table td {
+    padding: 15px;
+    border-bottom: 1px solid #dee2e6;
+    color: #333;
+}
+
+.usuarios-table tbody tr:hover {
+    background: #f8f9fa;
+}
+
+.usuarios-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.no-users {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.btn-primary {
+    background: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background: #0056b3;
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+}
+
+.btn-secondary:hover {
+    background: #545b62;
+}
+
+.export-success {
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .relatorio-header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .header-actions {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .relatorio-main {
+        padding: 15px;
+    }
+    
+    .usuarios-table {
+        font-size: 0.9rem;
+    }
+    
+    .usuarios-table th,
+    .usuarios-table td {
+        padding: 10px;
+    }
+}
